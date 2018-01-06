@@ -3768,3 +3768,25 @@ ActionView::Template::Error (exception class/object expected):
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (44.7ms)
+
+
+Started GET "/songs" for 74.139.8.180 at 2018-01-06 04:41:15 +0000
+Cannot render console from 74.139.8.180! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT  "songs".* FROM "songs" LIMIT 25 OFFSET 0[0m
+  Rendered songs/index.html.erb within layouts/application (5.5ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (#<ActiveRecord::Relation [#<Song id: 1, title: "Song 2", created_at: "2016-01-27 00:20:14", updated_at: "2016-01-27 00:20:14", artist_id: 1>, #<Song id: 2, title: "Flood", created_at: "2016-01-27 04:06:26", updated_at: "2016-01-27 04:06:26", artist_id: 2>, #<Song id: 3, title: "Mr. Brightside", created_at: "2016-02-07 04:26:43", updated_at: "2016-02-07 04:26:43", artist_id: 3>, #<Song id: 4, title: "Jenny Was a Friend of Mine", created_at: "2016-02-07 04:26:43", updated_at: "2016-02-07 04:26:43", artist_id: 3>, #<Song id: 5, title: "Jenny", created_at: "2016-02-07 04:26:43", updated_at: "2016-02-07 04:26:43", artist_id: 4>, #<Song id: 6, title: "Around the World", created_at: "2016-02-07 04:26:43", updated_at: "2016-02-07 04:26:43", artist_id: 5>, #<Song id: 7, title: "Harder, Better, Faster, Stronger", created_at: "2016-02-07 04:26:43", updated_at: "2016-02-07 04:26:43", artist_id: 5>, #<Song id: 8, title: "Where is My Mind?", created_at: "2016-02-07 04:26:43", updated_at: "2016-02-07 04:26:43", artist_id: 6>, #<Song id: 9, title: "Gigantic", created_at: "2016-02-07 04:26:43", updated_at: "2016-02-07 04:26:43", artist_id: 6>, #<Song id: 10, title: "Monkey Gone to Heaven", created_at: "2016-02-07 04:26:43", updated_at: "2016-02-07 04:26:43", artist_id: 6>, ...]>):
+    1: <ul>
+    2:   <%= raise Song.all.page(params[:page]).inspect %>
+    3: <% @songs.each do |song| %>
+    4:   <li><%= display_artist(song) %> - <%= link_to song.title, song_path(song) %></li>
+    5: <% end %>
+  app/views/songs/index.html.erb:2:in `_app_views_songs_index_html_erb___3619248510123234220_70123436013640'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (39.4ms)
