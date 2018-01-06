@@ -1,4 +1,5 @@
 <ul>
+  <%= raise Song.all.page(params[:page]) %>
 <% @songs.each do |song| %>
   <li><%= display_artist(song) %> - <%= link_to song.title, song_path(song) %></li>
 <% end %>
