@@ -3790,3 +3790,27 @@ ActionView::Template::Error (#<ActiveRecord::Relation [#<Song id: 1, title: "Son
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (39.4ms)
+
+
+Started GET "/songs" for 74.139.8.180 at 2018-01-06 04:41:35 +0000
+Cannot render console from 74.139.8.180! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SongsController#index as HTML
+  Rendered songs/index.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `to_i' for {"controller"=>"songs", "action"=>"index"}:ActionController::Parameters
+Did you mean?  to_s
+               to_a
+               to_h):
+    1: <ul>
+    2:   <%= raise Song.all.page(params).inspect %>
+    3: <% @songs.each do |song| %>
+    4:   <li><%= display_artist(song) %> - <%= link_to song.title, song_path(song) %></li>
+    5: <% end %>
+  app/views/songs/index.html.erb:2:in `_app_views_songs_index_html_erb___3619248510123234220_70123439312620'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (40.6ms)
